@@ -1,0 +1,25 @@
+<h2>My Notes</h2>
+<a routerLink="/archive" class="archive-link">Archive</a>
+<br>
+<br>
+<div>
+  <label>Task:
+    <input #task />
+  </label>
+  <button (click)="add(task.value); task.value=''">
+    add
+  </button>
+</div>
+<br>
+<br>
+<ng-container *ngFor='let note of notes'>
+  <div class="notes" *ngIf='!note.isArchived'>
+    <a routerLink="/detail/{{note.id}}">
+      <span class="badge">{{note.id}}</span> {{note.task}}
+    </a>
+    <div class="done"><input type="checkbox" name="checkbox">Done</div>
+    <button class="delete" title="delete note" (click)='delete(note)'>x</button>
+    <button class="archive" (click)='archiveCurrentNote(note)'>Archive</button>
+  </div>
+</ng-container>
+<app-note-search></app-note-search>
