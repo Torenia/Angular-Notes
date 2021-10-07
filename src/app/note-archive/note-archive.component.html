@@ -1,0 +1,12 @@
+<h3>Archived Notes:</h3>
+<a routerLink="/notes" class="notes-link">Notes</a>
+<br>
+<br>
+<ng-container *ngFor='let note of notes'>
+  <div *ngIf='note.isArchived'>
+    <div>
+      <span class="badge">{{note.id}}</span> {{note.task}}
+      <button (click)='unArchiveCurrentNote(note)' class="un-archive">Unarchive</button>
+    </div>
+  </div>
+</ng-container>

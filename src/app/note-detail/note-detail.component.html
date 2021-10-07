@@ -1,0 +1,13 @@
+<div *ngIf='note'>
+
+  <h2>Details: {{note.task}}</h2>
+  <div><span>id: </span>{{note.id}}</div>
+  <div>
+    <label>name:
+      <input [(ngModel)]='note.task' placeholder="task"/>
+    </label>
+  </div>
+  <button (click)='goBack()'>BACK</button>
+  <button (click)='save()'>SAVE</button>
+
+</div>
